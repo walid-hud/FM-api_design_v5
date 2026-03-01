@@ -6,6 +6,7 @@ import { isTest } from '../env.ts'
 import authRoutes from './routes/authRoutes.ts'
 import userRoutes from './routes/usersRoutes.ts'
 import habitsRoutes from './routes/habitsRoutes.ts'
+import "./db/schema.ts"
 
 const app = e()
 
@@ -32,6 +33,7 @@ app.get("/health" , (_,res)=>{
 app.all('/*splat' , (_,r,n)=>{
     return r.status(404).json({success:false , error:"not found"})
 })
+
 
 
 export { app }
